@@ -72,4 +72,4 @@ class Payload():
 
 
 if __name__ == '__main__':
-    Payload('Luan Rezende Alves Pereira', '+5517992016549', '1.00', 'São José do Rio Preto', 'fsocietycommunity').gerarPayload()
+    Payload('Fulano', '+5599999999', '1.00', 'cidade', 'cometario').gerarPayload()
