@@ -7,4 +7,6 @@
 <p>Muito simples, basta colocar as informações necessárias específicadas no código, após isto o código irá gerar um BRCODE de pagamento com as informações desejadas. Desde nome até valor.</p>
 
 <h2>Exemplo</h2>
-![](https://miro.medium.com/max/630/1*_jdgZNv76iblNfzxMQx4EQ.gif)
+<p align="center">
+<img src="exemplo.gif">
+</p> 
