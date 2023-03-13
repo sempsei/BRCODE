@@ -2,9 +2,10 @@ import crcmod
 import qrcode
 import image
 
+
 class Payload():
     def __init__(self, nome, chavepix, valor, cidade, txtId):
-        
+
         self.nome = nome
         self.chavepix = chavepix
         self.valor = valor
@@ -45,31 +46,31 @@ class Payload():
         self.addDataField = f'62{len(self.addDataField_tam)}{self.addDataField_tam}'
         self.crc16 = '6304'
 
-  
     def gerarPayload(self):
         self.payload = f'{self.payloadFormat}{self.merchantAccount}{self.merchantCategCode}{self.transactionCurrency}{self.transactionAmount}{self.countryCode}{self.merchantName}{self.merchantCity}{self.addDataField}{self.crc16}'
 
         self.gerarCrc16(self.payload)
 
-    
     def gerarCrc16(self, payload):
-        crc16 = crcmod.mkCrcFun(poly=0x11021, initCrc=0xFFFF, rev=False, xorOut=0x0000)
+        crc16 = crcmod.mkCrcFun(
+            poly=0x11021, initCrc=0xFFFF, rev=False, xorOut=0x0000)
 
         self.crc16Code = hex(crc16(str(payload).encode('utf-8')))
 
-        self.crc16Code_formatado = str(self.crc16Code).replace('0x', '').upper()
+        self.crc16Code_formatado = str(
+            self.crc16Code).replace('0x', '').upper()
 
         self.payload_completa = f'{payload}{self.crc16Code_formatado}'
 
         self.gerarQrCode(self.payload_completa)
 
-    
     def gerarQrCode(self, payload):
         self.qrcode = qrcode.make(payload)
         self.qrcode.save('pixqrcode.png')
-        
+
         return print(payload)
 
 
 if __name__ == '__main__':
-    Payload('Fulano', '+5599999999', '1.00', 'cidade', 'cometario').gerarPayload()
+    Payload('Fulano', '+5599999999', '1.00',
+            'cidade', 'cometario').gerarPayload()
