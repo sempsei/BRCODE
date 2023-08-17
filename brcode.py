@@ -72,5 +72,5 @@ class Payload():
 
 
 if __name__ == '__main__':
-    Payload('Fulano', '+5599999999', '1.00',
+    Payload('Fulano de Tal', '+5599999999', '1.00',
             'cidade', 'cometario').gerarPayload()
