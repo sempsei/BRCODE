@@ -66,11 +66,11 @@ class Payload():
 
     def gerarQrCode(self, payload):
         self.qrcode = qrcode.make(payload)
-        self.qrcode.save('pixqrcode.png')
+        self.qrcode.save('qrcode.png')
 
         return print(payload)
 
 
 if __name__ == '__main__':
-    Payload('Fulano de Tal', '+5599999999', '1.00',
-            'cidade', 'cometario').gerarPayload()
+    Payload('Luan Rezende', '+5517992016549', '1.00',
+            'rio preto', 'sometest to state').gerarPayload()
